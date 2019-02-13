@@ -13,17 +13,17 @@ int main(){
 void userInput(){
   char str[100];
   while(1){
-    printf("$$$$\n");
-    // printf("What statement would you like to tokenize ? \n ");
+    printf("$\n");  // Marker that comes up to indicate the system is ready for the next input
+   
     fgets(str,100,stdin);
     int c = string_length(str);
-    printf("Hello\n");
+    printf("Test 1\n");
     int startPos = find_word_start(str,0);
-    printf("WHAT\n");
+    printf("Test 2\n");
     int endPos = find_word_end(str,startPos);
-    printf("when\n");
+    printf("Test 3\n");
     int wordCount = count_words(str);
-    printf("how\n");
+    printf("Test 4\n");
     char **tokenizedWords = argtok(str);
     printf("The start of the next word is located in position : %d\n", startPos);
     printf("The end of the next word is located in position : %d\n", endPos);

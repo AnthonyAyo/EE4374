@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "aayo_argtok.h"
 
+//Count the number of chars in the string. 
 int string_length(char *p){
   char *pp = p;
   while(*p){
@@ -42,18 +43,27 @@ int find_word_start(char *p, int pos){
 //gets the starting position from find_word_start and continues on until a space is found
 
 int find_word_end(char *p, int pos){
-  int count = pos;
+  int count = pos-1;
   int end = 0;
+  int i = 0;
   char *str = &p[pos];
-
+  
+	   
+	   
   while(*str){
-    if(*str!=' '){
-      str++;
+    if(str[i]!=' '){
+      i++;
       count++;
-    }else if((*str==' ')&&(*(str-1)!=' ')){
-      end = count-1;
-      return end;
+      // printf("%d\n", count);
     }
+    if(((str[i]==' ')&&((str[i-1])!=' '))||((str[i]=='\0')&&(str[i]!=' '))){
+	end = count+1;
+	return end;
+      }
+    if((*str == '\0') &&( *(str-1)== ' ')){
+	  return end;
+      }
+      
   }
 }
 
@@ -63,12 +73,14 @@ int count_words(char *p){
   char *t=p;
   int length = 0;
   while(*t){
-    if(*t == ' '){
+    if(*t == ' ')
       length = 0;
-    }else if (++length == 1){
+    else if (++length == 1)
       wordCount++;
+
+    
       *t++;
-    }
+    
   }
   return wordCount;
 }
@@ -76,6 +88,7 @@ void print_tokens(char **p){
   char **temp = p;
   while(*temp != NULL){
     printf("The tokenized words are :%c\n",*temp);
+    temp++;
   }
 }
 
