@@ -107,12 +107,12 @@ char** argtok(char *p){
   int end;
   int wordLength;
   int position = 0;
-  char ** tokens = (char **)malloc((numberOfWords+1)*sizeof(char*));
+  char ** tokens = (char **)malloc((numberOfWords+1)*sizeof(char*));// creates the array of pointer based on # of tokens
   for(int i = 0; i < numberOfWords; i++){
       start = find_word_start(p,position);
       end = find_word_end(p,start);
       wordLength = end - start;
-      char *word = (char *)malloc((wordLength+1)*sizeof(char*));
+      char *word = (char *)malloc((wordLength+1)*sizeof(char*));// allocates memory for length of each token
       for (int j = start; j < end; j++){
 	*(word+count) = *(p+start);
 	count++;
