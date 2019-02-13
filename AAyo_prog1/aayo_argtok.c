@@ -3,7 +3,7 @@
 #include "aayo_argtok.h"
 
 int string_length(char *p){
-  char*pp =p;
+  char *pp = p;
   while(*p){
     p++;
   }
@@ -12,7 +12,7 @@ int string_length(char *p){
 
 //checks to see if the character being looked at is valid
 char is_valid_character(char c){
-  if((c>=33||c<=126)){
+  if((c >= 33|| c <= 126 )){
     return 1;
   }else
     return 0;
@@ -22,13 +22,13 @@ char is_valid_character(char c){
 int find_word_start(char *p, int pos){
   int start = 0;
   int count = 0;
-  p +=pos;
+  p += pos;
   char *str = p;
 
   while(*str){
     if(*str!=' '){
       str++;
-    count++;
+      count++;
     }else if ((*str ==' ')&&(*(str+1)==' ')){
       str++;
       count++;
@@ -42,7 +42,7 @@ int find_word_start(char *p, int pos){
 //gets the starting position from find_word_start and continues on until a space is found
 
 int find_word_end(char *p, int pos){
-  int count = 0;
+  int count = pos;
   int end = 0;
   char *str = &p[pos];
 
@@ -63,9 +63,9 @@ int count_words(char *p){
   char *t=p;
   int length = 0;
   while(*t){
-    if(*t == ' '}{
+    if(*t == ' '){
       length = 0;
-    }else if (++legth == 1){
+    }else if (++length == 1){
       wordCount++;
       *t++;
     }
@@ -74,8 +74,8 @@ int count_words(char *p){
 }
 void print_tokens(char **p){
   char **temp = p;
-  while(*temp !=null){
-    printf("The tokenized words are :%cn",*temp);
+  while(*temp != NULL){
+    printf("The tokenized words are :%c\n",*temp);
   }
 }
 
